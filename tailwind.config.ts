@@ -2,8 +2,18 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
-  prefix: "",
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}"
+  ],
+  safelist: [
+    {
+      pattern: /^(bg|text|border|ring|fill|stroke)-(brand-(teal|olive|mint|ink)-(200|500|800|900))(\/\d+)?$/,
+      variants: ['hover', 'focus', 'focus-visible', 'active', 'group-hover', 'sm', 'md', 'lg']
+    }
+  ],
   theme: {
     container: {
       center: true,
@@ -14,6 +24,14 @@ export default {
     },
     extend: {
       colors: {
+        // Brand colors (tripletas HSL)
+        "brand-ink-900": "hsl(var(--brand-ink-900))",
+        "brand-ink-800": "hsl(var(--brand-ink-800))",
+        "brand-teal-500": "hsl(var(--brand-teal-500))",
+        "brand-olive-500": "hsl(var(--brand-olive-500))",
+        "brand-mint-200": "hsl(var(--brand-mint-200))",
+        "neutral-100": "hsl(var(--neutral-100))",
+        
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -22,13 +40,11 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          light: "hsl(var(--primary-light))",
-          dark: "hsl(var(--primary-dark))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-          light: "hsl(var(--secondary-light))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -51,20 +67,34 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      backgroundImage: {
-        'gradient-hero': 'var(--gradient-hero)',
-        'gradient-sky': 'var(--gradient-sky)',
-        'gradient-accent': 'var(--gradient-accent)',
-      },
-      boxShadow: {
-        'soft': 'var(--shadow-soft)',
-        'card': 'var(--shadow-card)',
-        'glow': 'var(--shadow-glow)',
+      spacing: {
+        '1': 'var(--space-1)',
+        '2': 'var(--space-2)', 
+        '3': 'var(--space-3)',
+        '4': 'var(--space-4)',
+        '6': 'var(--space-6)',
+        '8': 'var(--space-8)',
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        'sm': 'var(--radius-sm)',
+        'md': 'var(--radius-md)', 
+        'lg': 'var(--radius-lg)',
+        'xl': 'var(--radius-xl)',
+        DEFAULT: 'var(--radius)',
+      },
+      boxShadow: {
+        "soft": "var(--shadow-soft)",
+        "card": "var(--shadow-card)",
+        "cta": "var(--shadow-cta)",
+      },
+      backgroundImage: {
+        "gradient-subtle": "var(--gradient-subtle)",
+        "gradient-warm": "var(--gradient-warm)",
+        "gradient-hero": "var(--gradient-hero)",
+      },
+      fontFamily: {
+        "heading": ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        "body": ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
