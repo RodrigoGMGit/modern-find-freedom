@@ -6,14 +6,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { label: "Inicio", href: "#inicio" },
-    { label: "#JulioAzul", href: "#julio-azul" },
-    { label: "Blog", href: "#blog" },
-    { label: "Oferta educativa", href: "#oferta" },
-    { label: "Transparencia", href: "#transparencia" },
-    { label: "Voluntarios", href: "#voluntarios" },
-    { label: "El problema de la trata de personas", href: "#problema" },
-    { label: "Donativos", href: "#donativos" },
+    { label: "Inicio", href: "/" },
+    { label: "Blog", href: "/blog" },
+    { label: "Oferta educativa", href: "/oferta-educativa" },
+    { label: "Transparencia", href: "/transparencia" },
+    { label: "Voluntarios", href: "/voluntarios" },
+    { label: "Donativos", href: "/donativos" },
   ];
 
   return (
