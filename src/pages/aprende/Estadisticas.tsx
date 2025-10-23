@@ -7,45 +7,42 @@ import { cardColors, iconColors, numberColors } from "@/utils/cardColors";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-// Estadísticas destacadas (estilo limpio como en transparencia)
+// Estadísticas destacadas principales
 const featuredStats = [
   { number: "40M+", label: "Víctimas en el mundo", icon: Globe, description: "La cifra más alta en la historia" },
   { number: "72%", label: "Son mujeres", icon: Users, description: "49% adultas, 23% niñas" },
   { number: "57%", label: "Población vulnerable en México", icon: AlertCircle, description: "Pueden ser víctimas de este delito" },
 ];
 
-const estadisticas = [
-  {
-    icon: MapPin,
-    stat: "País de origen, tránsito y destino",
-    label: "México en la trata",
-    description: "Por su ubicación geográfica, México es un país de origen, tránsito y destino de víctimas",
-    source: "ONU",
-    highlight: false,
+// Estadísticas adicionales con el mismo estilo limpio
+const additionalStats = [
+  { 
+    number: "México", 
+    label: "País de origen, tránsito y destino", 
+    icon: MapPin, 
+    description: "Por su ubicación geográfica estratégica",
+    source: "ONU"
   },
-  {
-    icon: AlertCircle,
-    stat: "47 grupos",
-    label: "Crimen organizado en México",
-    description: "En México existen 47 grupos de delincuencia organizada involucrados en la trata de personas para fines sexuales y laborales",
-    source: "ONU",
-    highlight: true,
+  { 
+    number: "47", 
+    label: "Grupos de crimen organizado", 
+    icon: AlertCircle, 
+    description: "Involucrados en trata en México",
+    source: "ONU"
   },
-  {
-    icon: Users,
-    stat: "45.4% conocidos | 49.1% desconocidos",
-    label: "¿Quién capta a las víctimas?",
-    description: "En México alrededor de 45.4% de las víctimas son captadas por una persona conocida, 49.1% por desconocidos y 5.5% por miembros de la delincuencia organizada",
-    source: "",
-    highlight: false,
+  { 
+    number: "45.4%", 
+    label: "Captación por conocidos", 
+    icon: Users, 
+    description: "49.1% por desconocidos, 5.5% por organizaciones",
+    source: "Estudio México"
   },
-  {
-    icon: Activity,
-    stat: "60%",
-    label: "Material de abuso infantil",
-    description: "México genera más de 60% de la producción global de material sexual de abuso a menores",
-    source: "Fundación camino a casa",
-    highlight: true,
+  { 
+    number: "60%", 
+    label: "Material de abuso infantil", 
+    icon: Activity, 
+    description: "México genera más del 60% global",
+    source: "Fundación camino a casa"
   },
 ];
 
@@ -125,57 +122,40 @@ const Estadisticas = () => {
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-brand-mint-200/50 to-transparent"></div>
           </div>
 
-          {/* Grid de estadísticas detalladas */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
-            {estadisticas.map((item, index) => {
-              const colorIndex = index % 3;
-              const cardColor = cardColors[colorIndex];
-              const colors = numberColors[colorIndex];
+          {/* Estadísticas adicionales - Estilo limpio */}
+          <section className="mb-12 sm:mb-16">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-brand-ink-900 text-center mb-8 sm:mb-12">
+              Datos Adicionales
+            </h2>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+              {additionalStats.map((item, index) => {
+                const colors = numberColors[index % 3];
 
-              return (
-                <Card 
-                  key={index} 
-                  className={`${cardColor} border hover:shadow-cta transition-smooth hover:-translate-y-1 group ${item.highlight ? 'ring-2 ring-brand-teal-500/20' : ''}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col">
-                    {item.highlight && (
-                      <div className="absolute top-3 right-3">
-                        <div className="w-2 h-2 rounded-full bg-brand-teal-500 animate-pulse"></div>
-                      </div>
-                    )}
-                    
-                    <div className={`${colors.bg} rounded-full p-4 sm:p-5 w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:rotate-3 transition-smooth`}>
+                return (
+                  <div key={index} className="text-center group">
+                    <div className={`${colors.bg} rounded-full p-4 sm:p-6 w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 flex items-center justify-center shadow-soft group-hover:scale-110 transition-smooth`}>
                       <item.icon className={`h-8 w-8 sm:h-10 sm:w-10 ${colors.text}`} />
                     </div>
-                    
-                    <div className={`font-heading text-2xl sm:text-3xl font-bold ${colors.text} mb-2 sm:mb-3 leading-tight`}>
-                      {item.stat}
+                    <div className={`font-heading text-3xl sm:text-4xl lg:text-5xl font-bold ${colors.text} mb-2`}>
+                      {item.number}
                     </div>
-                    
-                    <h3 className="font-heading text-base sm:text-lg font-semibold text-brand-ink-900 mb-3 sm:mb-4">
+                    <p className="font-body text-sm sm:text-base text-brand-ink-900 font-medium mb-1">
                       {item.label}
-                    </h3>
-                    
-                    <div className="h-1 w-16 bg-gradient-to-r from-brand-teal-500 to-brand-mint-200 rounded-full mx-auto mb-4"></div>
-                    
-                    <p className="font-body text-sm sm:text-base text-brand-ink-800 leading-relaxed mb-4 flex-1">
+                    </p>
+                    <p className="font-body text-xs sm:text-sm text-brand-olive-500 mb-2">
                       {item.description}
                     </p>
-                    
                     {item.source && (
-                      <div className="pt-3 border-t border-brand-mint-200/30">
-                        <p className="font-body text-xs sm:text-sm text-brand-olive-500 italic flex items-center justify-center gap-1">
-                          <Info className="h-3 w-3" />
-                          Fuente: {item.source}
-                        </p>
-                      </div>
+                      <p className="font-body text-xs text-brand-ink-700/60 italic">
+                        {item.source}
+                      </p>
                     )}
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
 
           {/* CTA Final */}
           <Card className="bg-gradient-to-br from-brand-teal-500 via-brand-ink-800 to-brand-olive-500 border-0 shadow-cta text-white overflow-hidden relative">
