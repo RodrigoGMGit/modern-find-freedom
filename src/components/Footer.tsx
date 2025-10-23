@@ -22,7 +22,7 @@ const Footer = () => {
                 <img 
                   src={logo} 
                   alt="Fin de la Esclavitud" 
-                  className="h-12 w-12 object-contain group-hover:scale-110 transition-smooth"
+                  className="h-12 w-12 object-contain brightness-0 invert group-hover:scale-110 transition-smooth"
                 />
                 <h3 className="font-heading text-xl font-bold text-white group-hover:text-brand-mint-200 transition-smooth">
                   Fin de la Esclavitud
