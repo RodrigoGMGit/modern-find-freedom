@@ -17,13 +17,6 @@ const featuredStats = [
 // Estadísticas adicionales con el mismo estilo limpio
 const additionalStats = [
   { 
-    number: "México", 
-    label: "País de origen, tránsito y destino", 
-    icon: MapPin, 
-    description: "Por su ubicación geográfica estratégica",
-    source: "ONU"
-  },
-  { 
     number: "47", 
     label: "Grupos de crimen organizado", 
     icon: AlertCircle, 
@@ -112,23 +105,9 @@ const Estadisticas = () => {
             </div>
           </section>
 
-          {/* Separador visual */}
-          <div className="flex items-center gap-4 mb-12 sm:mb-16">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-brand-mint-200/50 to-transparent"></div>
-            <div className="flex items-center gap-2 text-brand-olive-500 text-sm font-medium">
-              <TrendingUp className="h-4 w-4" />
-              <span>Datos Detallados</span>
-            </div>
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-brand-mint-200/50 to-transparent"></div>
-          </div>
-
-          {/* Estadísticas adicionales - Estilo limpio */}
+          {/* Estadísticas adicionales */}
           <section className="mb-12 sm:mb-16">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-brand-ink-900 text-center mb-8 sm:mb-12">
-              Datos Adicionales
-            </h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10">
               {additionalStats.map((item, index) => {
                 const colors = numberColors[index % 3];
 
