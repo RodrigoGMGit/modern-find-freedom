@@ -16,14 +16,6 @@ const featuredStats = [
 
 const estadisticas = [
   {
-    icon: Globe,
-    stat: "40+ millones",
-    label: "Víctimas de trata en el mundo",
-    description: "Hoy en día existen más de 40 millones de víctimas de trata, es la cifra más alta en la historia de la humanidad",
-    source: "Walk Free",
-    highlight: true,
-  },
-  {
     icon: MapPin,
     stat: "País de origen, tránsito y destino",
     label: "México en la trata",
@@ -37,7 +29,7 @@ const estadisticas = [
     label: "Crimen organizado en México",
     description: "En México existen 47 grupos de delincuencia organizada involucrados en la trata de personas para fines sexuales y laborales",
     source: "ONU",
-    highlight: false,
+    highlight: true,
   },
   {
     icon: Users,
@@ -48,27 +40,11 @@ const estadisticas = [
     highlight: false,
   },
   {
-    icon: TrendingUp,
-    stat: "72% mujeres",
-    label: "Perfil de víctimas",
-    description: "72% de las víctimas detectadas en el mundo son del género femenino: 49% son mujeres adultas y el 23% son niñas",
-    source: "",
-    highlight: true,
-  },
-  {
     icon: Activity,
     stat: "60%",
     label: "Material de abuso infantil",
     description: "México genera más de 60% de la producción global de material sexual de abuso a menores",
     source: "Fundación camino a casa",
-    highlight: false,
-  },
-  {
-    icon: AlertCircle,
-    stat: "57%",
-    label: "Población vulnerable",
-    description: "Walk Free señala que el 57% de la población en México puede ser víctima de este delito",
-    source: "Walk Free",
     highlight: true,
   },
 ];
