@@ -72,12 +72,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className={`transition-smooth ${isScrolled ? "scale-90" : "scale-100"}`}>
-              <img src={logo} alt="Fin de la Esclavitud" className="h-12 w-12 sm:h-14 sm:w-14 object-contain" />
-            </div>
-            <div className="hidden sm:block">
-              
+          <Link to="/" className="flex items-center group">
+            <div className={`transition-smooth ${isScrolled ? "scale-95" : "scale-100"}`}>
+              <img 
+                src={logo} 
+                alt="Fin de la Esclavitud" 
+                className="h-14 w-auto sm:h-16 object-contain group-hover:scale-105 transition-transform duration-300" 
+              />
             </div>
           </Link>
 
