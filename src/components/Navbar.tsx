@@ -10,6 +10,16 @@ const Navbar = () => {
 
   const menuItems = [
     { label: "Inicio", href: "/" },
+    { 
+      label: "Aprende", 
+      href: "#",
+      submenu: [
+        { label: "¿Qué es la trata?", href: "/aprende/que-es-la-trata" },
+        { label: "Tipos de trata", href: "/aprende/tipos-de-trata" },
+        { label: "Estadísticas", href: "/aprende/estadisticas" },
+        { label: "Factores de vulnerabilidad", href: "/aprende/factores-de-vulnerabilidad" },
+      ]
+    },
     { label: "Blog", href: "/blog" },
     { label: "Oferta educativa", href: "/oferta-educativa" },
     { label: "Transparencia", href: "/transparencia" },

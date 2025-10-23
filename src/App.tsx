@@ -9,6 +9,10 @@ import OfertaEducativa from "./pages/OfertaEducativa";
 import Transparencia from "./pages/Transparencia";
 import Voluntarios from "./pages/Voluntarios";
 import Donativos from "./pages/Donativos";
+import QueEsLaTrata from "./pages/aprende/QueEsLaTrata";
+import TiposDeTrata from "./pages/aprende/TiposDeTrata";
+import Estadisticas from "./pages/aprende/Estadisticas";
+import FactoresDeVulnerabilidad from "./pages/aprende/FactoresDeVulnerabilidad";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +30,13 @@ const App = () => (
           <Route path="/transparencia" element={<Transparencia />} />
           <Route path="/voluntarios" element={<Voluntarios />} />
           <Route path="/donativos" element={<Donativos />} />
+          
+          {/* Rutas de Aprende */}
+          <Route path="/aprende/que-es-la-trata" element={<QueEsLaTrata />} />
+          <Route path="/aprende/tipos-de-trata" element={<TiposDeTrata />} />
+          <Route path="/aprende/estadisticas" element={<Estadisticas />} />
+          <Route path="/aprende/factores-de-vulnerabilidad" element={<FactoresDeVulnerabilidad />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
