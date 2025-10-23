@@ -1,6 +1,7 @@
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Shield, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -17,14 +18,16 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
             {/* Columna 1: Logo y descripción */}
             <div className="lg:col-span-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-gradient-to-br from-brand-teal-500 to-brand-mint-200 rounded-lg shadow-soft">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-white">
+              <Link to="/" className="flex items-center gap-3 mb-4 group">
+                <img 
+                  src={logo} 
+                  alt="Fin de la Esclavitud" 
+                  className="h-12 w-12 object-contain group-hover:scale-110 transition-smooth"
+                />
+                <h3 className="font-heading text-xl font-bold text-white group-hover:text-brand-mint-200 transition-smooth">
                   Fin de la Esclavitud
                 </h3>
-              </div>
+              </Link>
               <p className="font-body text-sm text-white/70 leading-relaxed mb-6">
                 Organización dedicada a combatir la trata de personas y promover la libertad y dignidad humana en México y el mundo.
               </p>

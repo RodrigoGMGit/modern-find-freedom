@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, Shield, ChevronDown, Heart } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,10 +72,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className={`p-1.5 sm:p-2 bg-gradient-to-br from-brand-teal-500 to-brand-ink-800 rounded-lg shadow-soft group-hover:shadow-cta transition-smooth ${
-              isScrolled ? "scale-90" : "scale-100"
-            }`}>
-              <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+            <div className={`transition-smooth ${isScrolled ? "scale-90" : "scale-100"}`}>
+              <img 
+                src={logo} 
+                alt="Fin de la Esclavitud" 
+                className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
+              />
             </div>
             <div className="hidden sm:block">
               <span className="font-heading text-base sm:text-lg lg:text-xl font-bold text-brand-ink-900 group-hover:text-brand-teal-500 transition-smooth">
