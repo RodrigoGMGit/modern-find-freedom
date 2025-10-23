@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Shield, ChevronDown, Heart } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -6,7 +6,10 @@ import { Button } from "@/components/ui/button";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const [mobileOpenSubmenu, setMobileOpenSubmenu] = useState<string | null>(null);
   const location = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
     { label: "Inicio", href: "/" },
@@ -38,7 +41,21 @@ const Navbar = () => {
   // Cerrar menú móvil cuando cambia la ruta
   useEffect(() => {
     setIsOpen(false);
+    setOpenSubmenu(null);
+    setMobileOpenSubmenu(null);
   }, [location]);
+
+  // Cerrar dropdown al hacer click fuera
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenSubmenu(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -67,24 +84,63 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop menu */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1" ref={dropdownRef}>
             {menuItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className={`relative px-3 xl:px-4 py-2 rounded-lg font-body text-sm font-medium transition-smooth group ${
-                  isActive(item.href)
-                    ? "text-brand-teal-500"
-                    : "text-brand-ink-800 hover:text-brand-teal-500"
-                }`}
-              >
-                {item.label}
-                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-brand-teal-500 to-brand-mint-200 transition-smooth origin-left ${
-                  isActive(item.href) 
-                    ? "scale-x-100" 
-                    : "scale-x-0 group-hover:scale-x-100"
-                }`}></span>
-              </Link>
+              item.submenu ? (
+                <div key={item.label} className="relative">
+                  <button
+                    onClick={() => setOpenSubmenu(openSubmenu === item.label ? null : item.label)}
+                    className={`relative px-3 xl:px-4 py-2 rounded-lg font-body text-sm font-medium transition-smooth group flex items-center gap-1 ${
+                      item.submenu.some(sub => isActive(sub.href))
+                        ? "text-brand-teal-500"
+                        : "text-brand-ink-800 hover:text-brand-teal-500"
+                    }`}
+                  >
+                    {item.label}
+                    <ChevronDown className={`h-4 w-4 transition-transform ${openSubmenu === item.label ? 'rotate-180' : ''}`} />
+                    <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-brand-teal-500 to-brand-mint-200 transition-smooth origin-left ${
+                      item.submenu.some(sub => isActive(sub.href))
+                        ? "scale-x-100" 
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}></span>
+                  </button>
+                  
+                  {openSubmenu === item.label && (
+                    <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-card border border-brand-mint-200/30 py-2 z-50">
+                      {item.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          to={subItem.href}
+                          className={`block px-4 py-2.5 font-body text-sm transition-smooth ${
+                            isActive(subItem.href)
+                              ? "bg-brand-teal-500/10 text-brand-teal-500 font-medium"
+                              : "text-brand-ink-800 hover:bg-brand-mint-200/30 hover:text-brand-teal-500"
+                          }`}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className={`relative px-3 xl:px-4 py-2 rounded-lg font-body text-sm font-medium transition-smooth group ${
+                    isActive(item.href)
+                      ? "text-brand-teal-500"
+                      : "text-brand-ink-800 hover:text-brand-teal-500"
+                  }`}
+                >
+                  {item.label}
+                  <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-brand-teal-500 to-brand-mint-200 transition-smooth origin-left ${
+                    isActive(item.href) 
+                      ? "scale-x-100" 
+                      : "scale-x-0 group-hover:scale-x-100"
+                  }`}></span>
+                </Link>
+              )
             ))}
           </div>
 
@@ -135,31 +191,70 @@ const Navbar = () => {
         <div 
           className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             isOpen 
-              ? "max-h-96 opacity-100 pb-4" 
+              ? "max-h-[500px] opacity-100 pb-4" 
               : "max-h-0 opacity-0"
           }`}
         >
           <div className="flex flex-col gap-1 pt-2">
             {menuItems.map((item, index) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className={`relative px-4 py-3 rounded-lg font-body text-sm font-medium transition-smooth ${
-                  isActive(item.href)
-                    ? "bg-brand-teal-500/10 text-brand-teal-500"
-                    : "text-brand-ink-800 hover:bg-brand-mint-200/30 hover:text-brand-teal-500"
-                }`}
-                style={{ 
-                  transitionDelay: isOpen ? `${index * 50}ms` : '0ms' 
-                }}
-              >
-                <div className="flex items-center justify-between">
-                  {item.label}
-                  {isActive(item.href) && (
-                    <div className="w-2 h-2 rounded-full bg-brand-teal-500"></div>
+              item.submenu ? (
+                <div key={item.label}>
+                  <button
+                    onClick={() => setMobileOpenSubmenu(mobileOpenSubmenu === item.label ? null : item.label)}
+                    className={`w-full relative px-4 py-3 rounded-lg font-body text-sm font-medium transition-smooth text-left ${
+                      item.submenu.some(sub => isActive(sub.href))
+                        ? "bg-brand-teal-500/10 text-brand-teal-500"
+                        : "text-brand-ink-800 hover:bg-brand-mint-200/30 hover:text-brand-teal-500"
+                    }`}
+                    style={{ 
+                      transitionDelay: isOpen ? `${index * 50}ms` : '0ms' 
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      {item.label}
+                      <ChevronDown className={`h-4 w-4 transition-transform ${mobileOpenSubmenu === item.label ? 'rotate-180' : ''}`} />
+                    </div>
+                  </button>
+                  
+                  {mobileOpenSubmenu === item.label && (
+                    <div className="ml-4 mt-1 flex flex-col gap-1">
+                      {item.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          to={subItem.href}
+                          className={`px-4 py-2.5 rounded-lg font-body text-sm transition-smooth ${
+                            isActive(subItem.href)
+                              ? "bg-brand-teal-500/10 text-brand-teal-500 font-medium"
+                              : "text-brand-ink-700 hover:bg-brand-mint-200/30 hover:text-brand-teal-500"
+                          }`}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
                   )}
                 </div>
-              </Link>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className={`relative px-4 py-3 rounded-lg font-body text-sm font-medium transition-smooth ${
+                    isActive(item.href)
+                      ? "bg-brand-teal-500/10 text-brand-teal-500"
+                      : "text-brand-ink-800 hover:bg-brand-mint-200/30 hover:text-brand-teal-500"
+                  }`}
+                  style={{ 
+                    transitionDelay: isOpen ? `${index * 50}ms` : '0ms' 
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    {item.label}
+                    {isActive(item.href) && (
+                      <div className="w-2 h-2 rounded-full bg-brand-teal-500"></div>
+                    )}
+                  </div>
+                </Link>
+              )
             ))}
             
             {/* Divider */}
