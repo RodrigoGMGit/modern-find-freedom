@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Shield } from "lucide-react";
 
 const partners = [
   { name: "Escudo de Jalisco", logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Escudo-de-jalisco.svg" },
@@ -42,31 +43,57 @@ const PartnersSection = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-muted overflow-hidden">
-      <div className="container mx-auto px-4 mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground">
-          NUESTROS ALIADOS
+    <section className="relative py-16 sm:py-20 bg-gradient-subtle overflow-hidden">
+      {/* Elementos decorativos de fondo */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-brand-teal-500/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-brand-mint-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="relative container mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+        {/* Logo circular con icono */}
+        <div className="flex justify-center mb-4 sm:mb-6">
+          <div className="p-2 sm:p-3 bg-gradient-to-r from-brand-teal-500 to-brand-ink-800 rounded-full shadow-soft">
+            <Shield className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+          </div>
+        </div>
+
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-brand-ink-900 mb-3 sm:mb-4">
+          Nuestros Aliados
         </h2>
+        <p className="font-body text-sm sm:text-base md:text-lg text-brand-olive-500 text-center max-w-2xl mx-auto">
+          Organizaciones que colaboran con nosotros en la lucha contra la trata de personas
+        </p>
       </div>
       
       <div
         ref={scrollRef}
-        className="flex gap-16 overflow-x-hidden whitespace-nowrap"
+        className="relative flex gap-8 sm:gap-12 md:gap-16 overflow-x-hidden whitespace-nowrap py-8"
         style={{ scrollBehavior: "auto" }}
       >
         {/* Duplicate partners for seamless loop */}
         {[...partners, ...partners].map((partner, index) => (
           <div
             key={index}
-            className="inline-flex items-center justify-center flex-shrink-0 w-32 h-32 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+            className="inline-flex items-center justify-center flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-white rounded-xl shadow-soft hover:shadow-card transition-smooth hover:scale-105 p-4 sm:p-6 group border border-brand-mint-200/30"
           >
             <img
               src={partner.logo}
               alt={partner.name}
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-full object-contain filter brightness-0 opacity-70 group-hover:brightness-100 group-hover:opacity-100 transition-smooth"
+              loading="lazy"
             />
           </div>
         ))}
+      </div>
+
+      {/* Indicador visual de scroll */}
+      <div className="relative flex justify-center mt-6 sm:mt-8">
+        <div className="flex gap-2">
+          <div className="w-2 h-2 rounded-full bg-brand-teal-500 animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-brand-mint-200 animate-pulse delay-150"></div>
+          <div className="w-2 h-2 rounded-full bg-brand-olive-500 animate-pulse delay-300"></div>
+        </div>
       </div>
     </section>
   );
