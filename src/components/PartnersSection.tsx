@@ -68,7 +68,7 @@ const PartnersSection = () => {
       
       <div
         ref={scrollRef}
-        className="relative flex gap-6 sm:gap-8 md:gap-10 overflow-x-hidden whitespace-nowrap py-8"
+        className="relative flex gap-3 sm:gap-4 md:gap-5 overflow-x-hidden whitespace-nowrap py-8"
         style={{ scrollBehavior: "auto" }}
       >
         {/* Duplicate partners for seamless loop */}
