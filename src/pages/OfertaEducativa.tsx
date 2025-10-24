@@ -98,23 +98,24 @@ const OfertaEducativa = () => {
       
       <main className="relative pt-24 sm:pt-28 pb-16 sm:pb-20">
         {/* Hero Diplomado mejorado */}
-        <section className="relative h-64 sm:h-80 md:h-96 mb-12 sm:mb-16 lg:mb-20 overflow-hidden rounded-2xl mx-4 sm:mx-6 lg:mx-12 shadow-card">
+        <section className="relative h-auto min-h-[400px] sm:min-h-[500px] mb-12 sm:mb-16 lg:mb-20 overflow-hidden rounded-2xl mx-4 sm:mx-6 lg:mx-12 shadow-card">
           <img
             src="https://findelaesclavitud.org/wp-content/uploads/2025/05/DIMPLMADO-2.jpg"
             alt="Diplomado en Prevención de Trata de Personas"
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-ink-900/90 via-brand-teal-500/80 to-brand-ink-800/90 flex items-center justify-center p-4">
-            <div className="text-center">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-ink-900/90 via-brand-teal-500/80 to-brand-ink-800/90"></div>
+          <div className="relative flex items-center justify-center min-h-[400px] sm:min-h-[500px] p-6 sm:p-8 md:p-12">
+            <div className="text-center max-w-3xl">
               <div className="flex justify-center mb-4 sm:mb-6">
                 <div className="p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                   <GraduationCap className="h-10 w-10 sm:h-12 sm:w-12 text-brand-mint-200" />
                 </div>
               </div>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-heading-1">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight">
                 Diplomado en Prevención
               </h2>
-              <p className="font-body text-sm sm:text-base md:text-lg text-brand-mint-200/90 mb-6 sm:mb-8 max-w-2xl mx-auto">
+              <p className="font-body text-sm sm:text-base md:text-lg text-brand-mint-200/90 mb-6 sm:mb-8 px-4">
                 Fórmate como profesional en la lucha contra la trata de personas
               </p>
               <Button
