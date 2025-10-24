@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Shield, ChevronDown, Heart } from "lucide-react";
+import { Menu, X, Shield, ChevronDown, Heart, Home } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -104,6 +104,12 @@ const Navbar = () => {
 
           {/* CTA Button Desktop */}
           <div className="hidden lg:flex items-center gap-3">
+            <Button asChild variant="outline" size="sm" className="shadow-soft hover:shadow-cta">
+              <Link to="#" className="flex items-center gap-2">
+                <Home className="h-4 w-4" />
+                Hogares Seguros
+              </Link>
+            </Button>
             <Button asChild variant="primary-brand" size="sm" className="shadow-soft hover:shadow-cta">
               <Link to="/donativos" className="flex items-center gap-2">
                 <Heart className="h-4 w-4" />
@@ -114,6 +120,11 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-2">
+            <Button asChild variant="ghost" size="sm" className="text-brand-teal-500 hover:bg-brand-teal-500/10">
+              <Link to="#">
+                <Home className="h-5 w-5" />
+              </Link>
+            </Button>
             <Button asChild variant="ghost" size="sm" className="text-brand-teal-500 hover:bg-brand-teal-500/10">
               <Link to="/donativos">
                 <Heart className="h-5 w-5" />
@@ -156,7 +167,11 @@ const Navbar = () => {
             {/* Divider */}
             <div className="h-px bg-brand-mint-200/30 my-2"></div>
             
-            {/* Mobile CTA */}
+            {/* Mobile CTAs */}
+            <Link to="#" className="px-4 py-3 rounded-lg font-body text-sm font-semibold bg-white border-2 border-brand-teal-500 text-brand-teal-500 hover:bg-brand-teal-500/10 transition-smooth flex items-center justify-center gap-2">
+              <Home className="h-4 w-4" />
+              Hogares Seguros
+            </Link>
             <Link to="/donativos" className="px-4 py-3 rounded-lg font-body text-sm font-semibold bg-gradient-to-r from-brand-teal-500 to-brand-ink-800 text-white hover:shadow-cta transition-smooth flex items-center justify-center gap-2">
               <Heart className="h-4 w-4 fill-white" />
               Hacer una Donación

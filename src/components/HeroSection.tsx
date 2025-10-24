@@ -89,7 +89,7 @@ const HeroSection = () => {
           </Button>
           
           <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 px-6 sm:px-8 py-6 text-base sm:text-lg font-semibold rounded-xl w-full sm:w-auto">
-            Conoce Más
+            Conoce Hogares Seguros
           </Button>
         </div>
       </div>
