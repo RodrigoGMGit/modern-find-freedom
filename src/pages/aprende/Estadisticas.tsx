@@ -167,7 +167,7 @@ const Estadisticas = () => {
                     </Link>
                   </Button>
                   
-                  <Button asChild variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white/10">
+                  <Button asChild variant="outline" size="lg" className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-brand-ink-900 transition-smooth">
                     <Link to="/aprende/que-es-la-trata">
                       ¿Qué es la trata?
                     </Link>
