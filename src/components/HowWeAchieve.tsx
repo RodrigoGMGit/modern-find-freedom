@@ -53,7 +53,7 @@ const HowWeAchieve = () => {
           </div>
           
           <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-ink-900 mb-6 leading-tight">
-            ¿Cómo lo <span className="bg-gradient-to-r from-brand-teal-600 to-brand-teal-500 bg-clip-text text-transparent">logramos</span>?
+            ¿Cómo lo <span className="text-brand-teal-600">logramos</span>?
           </h2>
           
           <p className="font-body text-lg sm:text-xl lg:text-2xl text-brand-ink-700 max-w-3xl mx-auto leading-relaxed">
