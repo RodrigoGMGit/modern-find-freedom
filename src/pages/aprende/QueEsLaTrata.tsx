@@ -144,44 +144,94 @@ const QueEsLaTrata = () => {
             </div>
           </div>
 
-          {/* Elementos mejorados */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          {/* Elementos mejorados - diseño alternado */}
+          <div className="space-y-12 sm:space-y-16 mb-12">
             {elementos.map((elemento, index) => {
-              const colorIndex = index % 3;
-              const cardColor = cardColors[colorIndex];
-              const iconColor = iconColors[colorIndex];
+              const Icon = elemento.icon;
+              const isEven = index % 2 === 0;
+              const colorSets = [
+                { 
+                  gradient: "from-brand-teal-500 to-brand-teal-600",
+                  bg: "bg-brand-teal-500",
+                  light: "bg-brand-teal-500/5",
+                  border: "border-brand-teal-500/20",
+                  text: "text-brand-teal-600",
+                  glow: "shadow-[0_0_40px_rgba(10,184,184,0.2)]"
+                },
+                { 
+                  gradient: "from-brand-olive-500 to-brand-olive-600",
+                  bg: "bg-brand-olive-500",
+                  light: "bg-brand-olive-500/5",
+                  border: "border-brand-olive-500/20",
+                  text: "text-brand-olive-600",
+                  glow: "shadow-[0_0_40px_rgba(161,182,143,0.2)]"
+                },
+                { 
+                  gradient: "from-brand-ink-800 to-brand-ink-900",
+                  bg: "bg-brand-ink-800",
+                  light: "bg-brand-ink-800/5",
+                  border: "border-brand-ink-800/20",
+                  text: "text-brand-ink-800",
+                  glow: "shadow-[0_0_40px_rgba(31,41,55,0.15)]"
+                },
+              ];
+              const colors = colorSets[index % 3];
 
               return (
-                <Card 
-                  key={index} 
-                  className={`${cardColor} border hover:shadow-cta transition-smooth group cursor-pointer hover:-translate-y-1`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                <div 
+                  key={index}
+                  className={`group animate-fade-in ${isEven ? 'lg:pr-12' : 'lg:pl-12'}`}
+                  style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <CardContent className="p-6 sm:p-8">
-                    <div className="flex justify-center mb-4 sm:mb-6">
-                      <div className={`p-4 sm:p-5 ${iconColor} rounded-2xl shadow-soft group-hover:scale-110 group-hover:rotate-3 transition-smooth`}>
-                        <elemento.icon className="h-7 w-7 sm:h-9 sm:w-9" />
+                  <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-12`}>
+                    {/* Lado del icono */}
+                    <div className="flex-shrink-0 relative">
+                      {/* Número grande de fondo */}
+                      <div className={`absolute -top-8 ${isEven ? '-left-8' : '-right-8'} text-[120px] sm:text-[140px] font-heading font-black ${colors.text} opacity-5 select-none pointer-events-none`}>
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+                      
+                      {/* Contenedor del icono con efectos */}
+                      <div className="relative">
+                        {/* Glow effect */}
+                        <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-20 blur-2xl rounded-full scale-150 group-hover:scale-175 transition-smooth`}></div>
+                        
+                        {/* Icono principal */}
+                        <div className={`relative w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br ${colors.gradient} rounded-3xl flex items-center justify-center shadow-cta ${colors.glow} group-hover:scale-110 group-hover:rotate-3 transition-smooth`}>
+                          <Icon className="w-16 h-16 sm:w-20 sm:h-20 text-white" strokeWidth={1.5} />
+                        </div>
                       </div>
                     </div>
                     
-                    <h3 className="font-heading text-xl sm:text-2xl font-bold text-brand-ink-900 mb-2 text-center">
-                      {elemento.title}
-                    </h3>
-                    
-                    <div className="h-1 w-16 bg-gradient-to-r from-brand-teal-500 to-brand-mint-200 rounded-full mx-auto mb-6"></div>
-                    
-                    <ul className="space-y-3">
-                      {elemento.items.map((item, i) => (
-                        <li key={i} className="flex items-start text-sm sm:text-base text-brand-ink-800 group/item">
-                          <div className="w-6 h-6 rounded-full bg-brand-teal-500/10 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 group-hover/item:bg-brand-teal-500/20 transition-smooth">
-                            <span className="w-2 h-2 rounded-full bg-brand-teal-500"></span>
-                          </div>
-                          <span className="font-body leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                    {/* Lado del contenido */}
+                    <div className="flex-1 w-full">
+                      <div className={`relative ${colors.light} backdrop-blur-sm rounded-3xl p-8 sm:p-10 border-2 ${colors.border} shadow-card group-hover:shadow-cta transition-smooth`}>
+                        {/* Elemento decorativo superior */}
+                        <div className={`absolute top-0 ${isEven ? 'left-0' : 'right-0'} w-24 h-1 bg-gradient-to-r ${colors.gradient} rounded-full`}></div>
+                        
+                        {/* Título */}
+                        <h3 className={`font-heading text-2xl sm:text-3xl font-bold ${colors.text} mb-6`}>
+                          {elemento.title}
+                        </h3>
+                        
+                        {/* Lista de items */}
+                        <ul className="space-y-3">
+                          {elemento.items.map((item, i) => (
+                            <li key={i} className="flex items-start group/item">
+                              <div className={`w-8 h-8 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center mr-4 flex-shrink-0 shadow-soft group-hover/item:scale-110 transition-smooth`}>
+                                <span className="text-white font-bold text-sm">{i + 1}</span>
+                              </div>
+                              <span className="font-body text-base sm:text-lg text-brand-ink-800 leading-relaxed pt-0.5">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        
+                        {/* Elemento decorativo de esquina */}
+                        <div className={`absolute bottom-4 ${isEven ? 'right-4' : 'left-4'} w-16 h-16 ${colors.bg} opacity-5 rounded-full`}></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
