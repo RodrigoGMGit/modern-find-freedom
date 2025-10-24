@@ -1,4 +1,4 @@
-import { Users, Flag, Bird, MessageSquare, HandHeart, Target, Sparkles } from "lucide-react";
+import { Users, Flag, Bird, MessageSquare, HandHeart, Target } from "lucide-react";
 
 const achievements = [
   {
@@ -45,8 +45,7 @@ const HowWeAchieve = () => {
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header mejorado */}
         <div className="text-center mb-16 sm:mb-20 lg:mb-24 animate-fade-in">
-          <div className="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-gradient-to-r from-brand-teal-500/10 to-brand-mint-200/20 backdrop-blur-sm rounded-full border border-brand-teal-500/20 shadow-soft">
-            <Sparkles className="w-5 h-5 text-brand-teal-600" />
+          <div className="inline-flex items-center justify-center mb-6 px-6 py-3 bg-gradient-to-r from-brand-teal-500/10 to-brand-mint-200/20 backdrop-blur-sm rounded-full border border-brand-teal-500/20 shadow-soft">
             <span className="font-body text-sm uppercase tracking-widest text-brand-teal-600 font-bold">
               Nuestra Estrategia
             </span>
