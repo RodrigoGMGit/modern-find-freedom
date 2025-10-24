@@ -115,28 +115,28 @@ const ValuesSection = () => {
         </div>
 
         {/* Grid de valores mejorado */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto justify-items-center">
           {values.map((value, index) => {
             const Icon = value.icon;
             
             return (
               <div
                 key={index}
-                className="group animate-fade-in"
+                className="group animate-fade-in w-full max-w-sm"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative h-full">
                   {/* Card con efecto glassmorphism */}
-                  <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-cta hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.4)] transition-smooth h-full flex flex-col border-2 border-white/50">
+                  <div className="relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-cta hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.4)] transition-smooth h-full flex flex-col items-center border-2 border-white/50">
                     {/* Borde superior decorativo con gradiente */}
                     <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${value.gradient} rounded-t-3xl`}></div>
                     
                     {/* Círculo decorativo de fondo */}
                     <div className={`absolute -top-8 -right-8 w-32 h-32 ${value.light} rounded-full blur-2xl group-hover:scale-150 transition-smooth duration-500`}></div>
                     
-                    <div className="relative z-10">
+                    <div className="relative z-10 flex flex-col items-center w-full">
                       {/* Icono con efecto */}
-                      <div className="mb-6 flex justify-center">
+                      <div className="mb-6">
                         <div className={`w-20 h-20 bg-gradient-to-br ${value.gradient} rounded-2xl flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:rotate-6 transition-smooth`}>
                           <Icon className="w-10 h-10 text-white" strokeWidth={2} />
                         </div>
