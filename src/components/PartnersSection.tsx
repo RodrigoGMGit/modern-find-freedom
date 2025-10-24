@@ -73,16 +73,16 @@ const PartnersSection = () => {
         <div className="absolute bottom-10 right-10 w-40 h-40 bg-brand-mint-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12 text-center">
         {/* Logo circular con icono */}
         <div className="flex justify-center mb-4 sm:mb-6">
           
         </div>
 
-        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-brand-ink-900 mb-3 sm:mb-4">
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-ink-900 mb-3 sm:mb-4">
           Nuestros Aliados
         </h2>
-        <p className="font-body text-sm sm:text-base md:text-lg text-brand-olive-500 text-center max-w-2xl mx-auto">
+        <p className="font-body text-sm sm:text-base md:text-lg text-brand-olive-500 max-w-2xl mx-auto">
           Organizaciones que colaboran con nosotros en la lucha contra la trata de personas
         </p>
       </div>
@@ -97,8 +97,8 @@ const PartnersSection = () => {
       </div>
 
       {/* Indicador visual de scroll */}
-      <div className="relative flex justify-center mt-6 sm:mt-8">
-        <div className="flex gap-2">
+      <div className="relative flex justify-center items-center mt-6 sm:mt-8">
+        <div className="flex gap-2 items-center">
           <div className="w-2 h-2 rounded-full bg-brand-teal-500 animate-pulse"></div>
           <div className="w-2 h-2 rounded-full bg-brand-mint-200 animate-pulse delay-150"></div>
           <div className="w-2 h-2 rounded-full bg-brand-olive-500 animate-pulse delay-300"></div>
