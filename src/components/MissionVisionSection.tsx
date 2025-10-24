@@ -1,4 +1,4 @@
-import { Target, Eye, Shield, Users, Heart } from "lucide-react";
+import { Target, Eye } from "lucide-react";
 import { Card } from "@/components/ui/card";
 const MissionVisionSection = () => {
   return <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
@@ -15,8 +15,7 @@ const MissionVisionSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Título principal con estilo mejorado */}
         <div className="text-center mb-16 sm:mb-20 animate-fade-in">
-          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-            <Shield className="w-6 h-6 text-brand-mint-200" />
+          <div className="inline-flex items-center justify-center mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
             <span className="font-body text-sm uppercase tracking-widest text-brand-mint-200 font-semibold">
               Nuestro Propósito
             </span>
