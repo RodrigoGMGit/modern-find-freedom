@@ -1,4 +1,4 @@
-import { Heart, Target, Hand, Zap, Users2, Shield, MessageCircle, Award, Sparkles } from "lucide-react";
+import { Heart, Target, Hand, Zap, Users2, Shield, MessageCircle, Award } from "lucide-react";
 
 const values = [
   { 
@@ -98,8 +98,7 @@ const ValuesSection = () => {
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 sm:mb-20 animate-fade-in">
-          <div className="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow-soft">
-            <Sparkles className="w-5 h-5 text-brand-mint-200" />
+          <div className="inline-flex items-center justify-center mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow-soft">
             <span className="font-body text-sm uppercase tracking-widest text-brand-mint-200 font-bold">
               Lo Que Nos Define
             </span>
