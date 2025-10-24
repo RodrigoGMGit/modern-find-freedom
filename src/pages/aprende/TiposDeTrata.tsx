@@ -42,7 +42,7 @@ const tiposDeTrata = [
   {
     icon: UserX,
     title: "Adopciones Ilegales",
-    image: adopcionesIlegalesImg,
+    image: traficoOrganosImg,
     description: "Se considera culpable del delito de adopción ilegal a aquel que facilite, instrumente, colabore, gestione y/o consienta para que una persona menor de edad sea dada en adopción sin que se cumplan las disposiciones legales estatales, federales y/o los tratados internacionales.",
     details: "",
     gradient: "from-brand-olive-500 to-brand-olive-600",
@@ -68,7 +68,7 @@ const tiposDeTrata = [
   {
     icon: Activity,
     title: "Extracción Ilegal de Órganos",
-    image: traficoOrganosImg,
+    image: adopcionesIlegalesImg,
     description: "Se refiere a la extracción u obtención ilícita de órganos humanos ajenos.",
     details: "Dicha extracción será ilícita si no existe consentimiento libre, informado y expreso del donante, si no hay autorización necesaria en caso de donante fallecido, o si se ofrece retribución. De los aproximadamente 120,000 transplantes que se realizan cada año en el mundo, la OMS estima que entre un 5% y un 10% de ellos son ilegales.",
     gradient: "from-brand-ink-800 to-brand-ink-900",
