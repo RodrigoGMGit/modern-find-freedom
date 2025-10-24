@@ -80,7 +80,7 @@ const PartnersSection = () => {
             <img
               src={partner.logo}
               alt={partner.name}
-              className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+              className="max-w-full max-h-full object-contain filter brightness-0 opacity-70 group-hover:brightness-100 group-hover:opacity-100 transition-all duration-500"
               loading="lazy"
             />
           </div>
