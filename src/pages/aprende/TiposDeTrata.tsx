@@ -7,28 +7,41 @@ import { cardColors, iconColors } from "@/utils/cardColors";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+// Importar imágenes
+import matrimonioForzadoImg from "@/assets/matrimonio-forzado.png";
+import mendicidadForzadaImg from "@/assets/explotacion-menores.png";
+import adopcionesIlegalesImg from "@/assets/venta-ninos.png";
+import explotacionSexualImg from "@/assets/explotacion-sexual.png";
+import traficoOrganosImg from "@/assets/trafico-organos.png";
+import trabajosForzadosImg from "@/assets/trabajos-forzados.png";
+import actividadesDelictivasImg from "@/assets/explotacion-menores.png";
+
 const tiposDeTrata = [
   {
     icon: Heart,
     title: "Matrimonio Forzado",
+    image: matrimonioForzadoImg,
     description: "Matrimonio que sucede sin el consentimiento de una o ambas partes. Haber consentido al matrimonio significa que la persona acordó de manera completa, libre e informada, casarse con otra persona, así como el momento en el que se efectuaría el matrimonio.",
     details: "El matrimonio forzado puede ocurrir cuando familiares u otras personas usan el abuso físico o emocional, amenazas o engaños, para forzar a alguien a casarse sin su consentimiento. Puede afectar a personas de todas las razas, grupos étnicos, religiones, géneros, edades u origen nacional.",
   },
   {
     icon: Users,
     title: "Mendicidad Forzada",
+    image: mendicidadForzadaImg,
     description: "Es obligar a una persona a pedir dinero en diversos escenarios, denigrándolos con la intención de generar en ellos un aspecto que provoque pena y con ello se generen mayores ganancias.",
     details: "",
   },
   {
     icon: UserX,
     title: "Adopciones Ilegales",
+    image: adopcionesIlegalesImg,
     description: "Se considera culpable del delito de adopción ilegal a aquel que facilite, instrumente, colabore, gestione y/o consienta para que una persona menor de edad sea dada en adopción sin que se cumplan las disposiciones legales estatales, federales y/o los tratados internacionales.",
     details: "",
   },
   {
     icon: AlertTriangle,
     title: "Explotación Sexual",
+    image: explotacionSexualImg,
     description: "La explotación sexual consiste en diversas actividades sexuales comerciales como prostitución forzada, prostitución infantil, venta de niños, niñas y adolescentes con fines sexuales, la producción de materiales pornográficos y el uso de menores en espectáculos sexuales.",
     vertientes: [
       { nombre: "Prostitución Forzada", stat: "Solo 1 de cada 10 mujeres en situación de prostitución lo hacen voluntariamente — ONU" },
@@ -39,12 +52,14 @@ const tiposDeTrata = [
   {
     icon: Activity,
     title: "Extracción Ilegal de Órganos",
+    image: traficoOrganosImg,
     description: "Se refiere a la extracción u obtención ilícita de órganos humanos ajenos.",
     details: "Dicha extracción será ilícita si no existe consentimiento libre, informado y expreso del donante, si no hay autorización necesaria en caso de donante fallecido, o si se ofrece retribución. De los aproximadamente 120,000 transplantes que se realizan cada año en el mundo, la OMS estima que entre un 5% y un 10% de ellos son ilegales.",
   },
   {
     icon: Briefcase,
     title: "Trabajos Forzados",
+    image: trabajosForzadosImg,
     description: "Según el Convenio sobre el trabajo forzoso, 1930 de la OIT es «todo trabajo o servicio exigido a un individuo bajo la amenaza de una pena cualquiera y para el cual dicho individuo no se ofrece voluntariamente».",
     elementos: [
       { titulo: "Trabajo o servicio", desc: "Hace referencia a todo tipo de trabajo en cualquier actividad, industria o sector" },
@@ -55,6 +70,7 @@ const tiposDeTrata = [
   {
     icon: FileSearch,
     title: "Menores en Actividades Delictivas",
+    image: actividadesDelictivasImg,
     description: "Menores de edad que son obligados a participar en organizaciones para realizar delitos, usualmente son hombres para convertirlos en sicarios utilizando amenazas o agresiones que afectan su juicio al cometer estos actos.",
     details: "",
   },
@@ -114,91 +130,107 @@ const TiposDeTrata = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <CardContent className="p-6 sm:p-8 lg:p-10">
-                    {/* Header con icono */}
-                    <div className="flex items-start gap-4 sm:gap-6 mb-6">
-                      <div className={`p-4 sm:p-5 ${iconColor} rounded-2xl shadow-soft flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-smooth`}>
-                        <tipo.icon className="h-7 w-7 sm:h-9 sm:w-9" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between gap-4 mb-3">
-                          <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-brand-ink-900 leading-heading-3">
-                            {tipo.title}
-                          </h3>
-                          <span className="text-xs font-bold text-brand-olive-500/60 bg-brand-olive-500/5 px-3 py-1 rounded-full whitespace-nowrap">
-                            #{index + 1}
-                          </span>
+                    <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-8">
+                      {/* Imagen */}
+                      <div className="w-full lg:w-48 flex-shrink-0">
+                        <div className="relative group/img">
+                          <div className="absolute inset-0 bg-gradient-to-br from-brand-teal-500/20 to-brand-ink-800/20 rounded-2xl blur-xl group-hover/img:scale-110 transition-smooth"></div>
+                          <img 
+                            src={tipo.image} 
+                            alt={tipo.title}
+                            className="relative w-full h-48 object-contain rounded-2xl bg-white/60 backdrop-blur-sm p-6 shadow-soft group-hover/img:scale-105 transition-smooth"
+                          />
                         </div>
-                        <div className="h-1 w-20 bg-gradient-to-r from-brand-teal-500 to-brand-mint-200 rounded-full mb-4"></div>
-                        <p className="font-body text-sm sm:text-base md:text-lg text-brand-ink-800 leading-relaxed">
-                          {tipo.description}
-                        </p>
+                      </div>
+
+                      {/* Contenido */}
+                      <div className="flex-1">
+                        <div className="flex items-start gap-4 sm:gap-6 mb-6">
+                          <div className={`p-4 sm:p-5 ${iconColor} rounded-2xl shadow-soft flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-smooth`}>
+                            <tipo.icon className="h-7 w-7 sm:h-9 sm:w-9" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-start justify-between gap-4 mb-3">
+                              <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-brand-ink-900 leading-heading-3">
+                                {tipo.title}
+                              </h3>
+                              <span className="text-xs font-bold text-brand-olive-500/60 bg-brand-olive-500/5 px-3 py-1 rounded-full whitespace-nowrap">
+                                #{index + 1}
+                              </span>
+                            </div>
+                            <div className="h-1 w-20 bg-gradient-to-r from-brand-teal-500 to-brand-mint-200 rounded-full mb-4"></div>
+                            <p className="font-body text-sm sm:text-base md:text-lg text-brand-ink-800 leading-relaxed">
+                              {tipo.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Detalles adicionales */}
+                        {tipo.details && (
+                          <div className="bg-white/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 mb-6 border border-brand-mint-200/30">
+                            <p className="font-body text-sm sm:text-base text-brand-ink-800 leading-relaxed">
+                              {tipo.details}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Vertientes (para Explotación Sexual) */}
+                        {tipo.vertientes && (
+                          <div className="mt-6 space-y-4">
+                            <h4 className="font-heading text-lg sm:text-xl font-bold text-brand-ink-900 mb-4">
+                              Principales Vertientes
+                            </h4>
+                            <div className="grid gap-4 sm:grid-cols-3">
+                              {tipo.vertientes.map((vertiente, i) => (
+                                <div 
+                                  key={i} 
+                                  className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-mint-200/30 hover:shadow-soft transition-smooth group/card"
+                                >
+                                  <div className="flex items-center gap-2 mb-3">
+                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-teal-500 to-brand-ink-800 flex items-center justify-center text-white font-bold text-sm">
+                                      {i + 1}
+                                    </div>
+                                    <h5 className="font-heading text-sm sm:text-base font-bold text-brand-ink-900 flex-1">
+                                      {vertiente.nombre}
+                                    </h5>
+                                  </div>
+                                  <p className="font-body text-xs sm:text-sm text-brand-ink-700 leading-relaxed">
+                                    {vertiente.stat}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Elementos (para Trabajos Forzados) */}
+                        {tipo.elementos && (
+                          <div className="mt-6">
+                            <h4 className="font-heading text-lg sm:text-xl font-bold text-brand-ink-900 mb-4">
+                              Elementos Clave
+                            </h4>
+                            <div className="grid sm:grid-cols-3 gap-4">
+                              {tipo.elementos.map((elemento, i) => (
+                                <div 
+                                  key={i} 
+                                  className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-mint-200/30 hover:shadow-soft transition-smooth"
+                                >
+                                  <div className="flex items-center gap-2 mb-3">
+                                    <div className="w-2 h-2 rounded-full bg-brand-teal-500"></div>
+                                    <h5 className="font-heading text-sm sm:text-base font-bold text-brand-ink-900 uppercase tracking-wide">
+                                      {elemento.titulo}
+                                    </h5>
+                                  </div>
+                                  <p className="font-body text-xs sm:text-sm text-brand-ink-700 leading-relaxed">
+                                    {elemento.desc}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
-
-                    {/* Detalles adicionales */}
-                    {tipo.details && (
-                      <div className="bg-white/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 mb-6 border border-brand-mint-200/30">
-                        <p className="font-body text-sm sm:text-base text-brand-ink-800 leading-relaxed">
-                          {tipo.details}
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Vertientes (para Explotación Sexual) */}
-                    {tipo.vertientes && (
-                      <div className="mt-6 space-y-4">
-                        <h4 className="font-heading text-lg sm:text-xl font-bold text-brand-ink-900 mb-4">
-                          Principales Vertientes
-                        </h4>
-                        <div className="grid gap-4 sm:grid-cols-3">
-                          {tipo.vertientes.map((vertiente, i) => (
-                            <div 
-                              key={i} 
-                              className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-mint-200/30 hover:shadow-soft transition-smooth group/card"
-                            >
-                              <div className="flex items-center gap-2 mb-3">
-                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-teal-500 to-brand-ink-800 flex items-center justify-center text-white font-bold text-sm">
-                                  {i + 1}
-                                </div>
-                                <h5 className="font-heading text-sm sm:text-base font-bold text-brand-ink-900 flex-1">
-                                  {vertiente.nombre}
-                                </h5>
-                              </div>
-                              <p className="font-body text-xs sm:text-sm text-brand-ink-700 leading-relaxed">
-                                {vertiente.stat}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Elementos (para Trabajos Forzados) */}
-                    {tipo.elementos && (
-                      <div className="mt-6">
-                        <h4 className="font-heading text-lg sm:text-xl font-bold text-brand-ink-900 mb-4">
-                          Elementos Clave
-                        </h4>
-                        <div className="grid sm:grid-cols-3 gap-4">
-                          {tipo.elementos.map((elemento, i) => (
-                            <div 
-                              key={i} 
-                              className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-mint-200/30 hover:shadow-soft transition-smooth"
-                            >
-                              <div className="flex items-center gap-2 mb-3">
-                                <div className="w-2 h-2 rounded-full bg-brand-teal-500"></div>
-                                <h5 className="font-heading text-sm sm:text-base font-bold text-brand-ink-900 uppercase tracking-wide">
-                                  {elemento.titulo}
-                                </h5>
-                              </div>
-                              <p className="font-body text-xs sm:text-sm text-brand-ink-700 leading-relaxed">
-                                {elemento.desc}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </CardContent>
                 </Card>
               );
