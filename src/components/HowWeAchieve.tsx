@@ -1,6 +1,4 @@
-import { Users, Flag, Bird, MessageSquare, HandHeart, Target } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { cardColors, iconColors } from "@/utils/cardColors";
+import { Users, Flag, Bird, MessageSquare, HandHeart, Target, CheckCircle2 } from "lucide-react";
 
 const achievements = [
   {
@@ -27,62 +25,95 @@ const achievements = [
 
 const HowWeAchieve = () => {
   return (
-    <section className="relative py-16 sm:py-20 bg-gradient-subtle overflow-hidden">
-      {/* Elementos decorativos de fondo */}
+    <section className="relative py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-white via-brand-mint-200/10 to-brand-teal-500/5 overflow-hidden">
+      {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-brand-teal-500/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-brand-mint-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-brand-olive-500/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-teal-500/30 to-transparent"></div>
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-brand-teal-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-brand-mint-200/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6">
-        {/* Header de la sección */}
-        <div className="text-center mb-10 sm:mb-14">
-          {/* Logo circular con icono */}
-          <div className="flex justify-center mb-4 sm:mb-6">
-            <div className="p-2 sm:p-3 bg-gradient-to-r from-brand-teal-500 to-brand-ink-800 rounded-full shadow-soft">
-              <Target className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
-            </div>
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20 animate-fade-in">
+          <div className="inline-flex items-center justify-center mb-6 px-6 py-3 bg-brand-teal-500/10 backdrop-blur-sm rounded-full border border-brand-teal-500/20">
+            <Target className="w-6 h-6 text-brand-teal-600 mr-3" />
+            <span className="font-body text-sm uppercase tracking-widest text-brand-teal-600 font-semibold">
+              Nuestra Estrategia
+            </span>
           </div>
-
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-ink-900 mb-3 sm:mb-4 leading-heading-1">
-            ¿Cómo lo logramos?
+          
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-brand-ink-900 mb-4 sm:mb-6 leading-tight">
+            ¿Cómo lo <span className="text-brand-teal-600">logramos</span>?
           </h2>
-          <p className="font-body text-sm sm:text-base md:text-lg text-brand-olive-500 max-w-2xl mx-auto leading-body">
-            Nuestra estrategia para combatir la trata de personas
+          
+          <p className="font-body text-base sm:text-lg lg:text-xl text-brand-ink-700 max-w-3xl mx-auto leading-relaxed">
+            Cinco pilares fundamentales que guían nuestro trabajo para combatir la trata de personas
           </p>
         </div>
 
-        {/* Grid de logros */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
-          {achievements.map((achievement, index) => {
-            const colorIndex = index % 3;
-            const cardColor = cardColors[colorIndex];
-            const iconColor = iconColors[colorIndex];
-
-            return (
-              <Card
-                key={index}
-                className={`${cardColor} border hover:shadow-card transition-smooth hover:scale-105 h-full group`}
-              >
-                <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col">
-                  {/* Icono circular */}
-                  <div className="flex justify-center mb-4 sm:mb-6">
-                    <div
-                      className={`p-3 sm:p-4 ${iconColor} rounded-full shadow-soft group-hover:scale-110 transition-smooth`}
-                    >
-                      <achievement.icon className="h-6 w-6 sm:h-8 sm:w-8" />
+        {/* Timeline/List design */}
+        <div className="max-w-5xl mx-auto">
+          <div className="relative">
+            {/* Vertical line on desktop */}
+            <div className="hidden lg:block absolute left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-teal-500 via-brand-teal-400 to-brand-teal-300"></div>
+            
+            <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+              {achievements.map((achievement, index) => {
+                const Icon = achievement.icon;
+                const colors = [
+                  { bg: "bg-brand-teal-500", text: "text-brand-teal-600", light: "bg-brand-teal-500/10", border: "border-brand-teal-500/30" },
+                  { bg: "bg-brand-ink-800", text: "text-brand-ink-800", light: "bg-brand-ink-800/10", border: "border-brand-ink-800/30" },
+                  { bg: "bg-brand-olive-500", text: "text-brand-olive-600", light: "bg-brand-olive-500/10", border: "border-brand-olive-500/30" },
+                ];
+                const colorSet = colors[index % 3];
+                
+                return (
+                  <div 
+                    key={index}
+                    className="relative animate-fade-in group"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="flex items-start gap-6 lg:gap-8">
+                      {/* Icon circle */}
+                      <div className="relative flex-shrink-0">
+                        <div className={`w-20 h-20 sm:w-24 sm:h-24 ${colorSet.bg} rounded-full flex items-center justify-center shadow-soft group-hover:scale-110 transition-smooth z-10 relative`}>
+                          <Icon className="w-9 h-9 sm:w-11 sm:h-11 text-white" />
+                        </div>
+                        
+                        {/* Connector dot on line (desktop only) */}
+                        <div className="hidden lg:block absolute top-1/2 -left-[34px] w-4 h-4 bg-white border-2 border-brand-teal-500 rounded-full -translate-y-1/2"></div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="flex-1 pt-2 sm:pt-3">
+                        <div className={`relative ${colorSet.light} ${colorSet.border} border-l-4 rounded-r-2xl p-6 sm:p-8 shadow-soft group-hover:shadow-card transition-smooth`}>
+                          {/* Number badge */}
+                          <div className="absolute -top-3 -left-1 bg-white px-3 py-1 rounded-full shadow-sm border border-gray-200">
+                            <span className={`font-heading text-sm font-bold ${colorSet.text}`}>
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                          </div>
+                          
+                          <p className="font-body text-base sm:text-lg text-brand-ink-800 leading-relaxed">
+                            {achievement.text}
+                          </p>
+                          
+                          {/* Checkmark */}
+                          <div className="mt-4 flex items-center gap-2">
+                            <CheckCircle2 className={`w-5 h-5 ${colorSet.text}`} />
+                            <span className={`font-body text-sm font-semibold ${colorSet.text}`}>
+                              En acción
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Texto descriptivo */}
-                  <p className="font-body text-sm sm:text-base text-brand-ink-800 leading-relaxed">
-                    {achievement.text}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
