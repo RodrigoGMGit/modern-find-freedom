@@ -10,18 +10,36 @@ import { Link } from "react-router-dom";
 const elementos = [
   {
     title: "Acciones",
+    subtitle: "Qué se hace",
     items: ["Captación", "Transporte", "Traslado", "Acogida", "Recepción"],
     icon: Target,
+    gradient: "from-brand-teal-500 to-brand-teal-600",
+    bg: "bg-brand-teal-500",
+    light: "bg-brand-teal-500/5",
+    border: "border-brand-teal-500/20",
+    text: "text-brand-teal-600",
   },
   {
     title: "Medios",
+    subtitle: "Cómo se hace",
     items: ["Amenaza", "Uso de fuerza", "Coacción", "Rapto", "Fraude", "Engaño", "Abuso de poder"],
     icon: AlertCircle,
+    gradient: "from-brand-olive-500 to-brand-olive-600",
+    bg: "bg-brand-olive-500",
+    light: "bg-brand-olive-500/5",
+    border: "border-brand-olive-500/20",
+    text: "text-brand-olive-600",
   },
   {
     title: "Fines",
+    subtitle: "Para qué se hace",
     items: ["Explotación sexual", "Trabajos forzados", "Esclavitud", "Extracción de órganos", "Servidumbre"],
     icon: LinkIcon,
+    gradient: "from-brand-ink-800 to-brand-ink-900",
+    bg: "bg-brand-ink-800",
+    light: "bg-brand-ink-800/5",
+    border: "border-brand-ink-800/20",
+    text: "text-brand-ink-800",
   },
 ];
 
@@ -29,70 +47,78 @@ const QueEsLaTrata = () => {
   useScrollToTop();
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-white">
       <Navbar />
       
-      {/* Elementos decorativos de fondo */}
+      {/* Fondo decorativo mejorado */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-brand-teal-500/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-brand-mint-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-brand-olive-500/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-mint-200/20 via-white to-brand-teal-500/10"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzBhYjhiOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-60"></div>
+        <div className="absolute top-20 right-10 w-72 h-72 bg-brand-teal-500/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-brand-mint-200/30 rounded-full blur-3xl animate-float delay-1000"></div>
       </div>
       
       <main className="relative pt-24 sm:pt-28 pb-16 sm:pb-20">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-          {/* Header */}
-          <div className="text-center mb-10 sm:mb-16 animate-fade-in">
-            <div className="flex justify-center mb-4 sm:mb-6">
-              <div className="p-3 sm:p-4 bg-gradient-to-br from-brand-teal-500 to-brand-ink-800 rounded-full shadow-cta animate-scale-in">
-                <AlertCircle className="h-10 w-10 sm:h-12 sm:w-12 text-white" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          {/* Header mejorado */}
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20 animate-fade-in">
+            <div className="inline-flex items-center justify-center mb-6 px-6 py-3 bg-gradient-to-r from-brand-teal-500/10 to-brand-mint-200/20 backdrop-blur-sm rounded-full border border-brand-teal-500/20 shadow-soft">
+              <span className="font-body text-sm uppercase tracking-widest text-brand-teal-600 font-bold">
+                Protocolo de Palermo, 2000
+              </span>
+            </div>
+            
+            <div className="flex justify-center mb-6">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-teal-500 to-brand-ink-800 opacity-20 blur-2xl rounded-full scale-150"></div>
+                <div className="relative p-4 bg-gradient-to-br from-brand-teal-500 to-brand-ink-800 rounded-3xl shadow-cta">
+                  <AlertCircle className="h-12 w-12 sm:h-16 sm:w-16 text-white" strokeWidth={1.5} />
+                </div>
               </div>
             </div>
             
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-ink-900 mb-3 sm:mb-4 leading-heading-1">
-              ¿Qué es la Trata de Personas?
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-ink-900 mb-6 leading-tight">
+              ¿Qué es la <span className="text-brand-teal-600">Trata de Personas</span>?
             </h1>
             
-            <div className="max-w-3xl mx-auto">
-              <p className="font-body text-sm sm:text-base md:text-lg text-brand-olive-500 leading-body mb-4">
-                La trata de personas es uno de los delitos más graves contra la dignidad humana
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-brand-ink-700">
-                <div className="flex items-center gap-2">
-                  <Scale className="h-4 w-4 text-brand-teal-500" />
-                  <span>Delito Internacional</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-brand-teal-500" />
-                  <span>Violación de DDHH</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="h-4 w-4 text-brand-teal-500" />
-                  <span>Afecta a millones</span>
-                </div>
+            <p className="font-body text-lg sm:text-xl lg:text-2xl text-brand-ink-700 max-w-4xl mx-auto leading-relaxed mb-8">
+              Uno de los delitos más graves contra la dignidad humana
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-teal-500/10 backdrop-blur-sm rounded-full border border-brand-teal-500/20">
+                <Scale className="h-5 w-5 text-brand-teal-600" />
+                <span className="font-body text-sm font-medium text-brand-ink-800">Delito Internacional</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-teal-500/10 backdrop-blur-sm rounded-full border border-brand-teal-500/20">
+                <Shield className="h-5 w-5 text-brand-teal-600" />
+                <span className="font-body text-sm font-medium text-brand-ink-800">Violación de DDHH</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-teal-500/10 backdrop-blur-sm rounded-full border border-brand-teal-500/20">
+                <Users className="h-5 w-5 text-brand-teal-600" />
+                <span className="font-body text-sm font-medium text-brand-ink-800">Afecta a millones</span>
               </div>
             </div>
           </div>
 
-          {/* Definición destacada */}
-          <Card className="bg-gradient-to-br from-brand-teal-500 to-brand-ink-800 border-0 mb-10 sm:mb-12 shadow-cta overflow-hidden">
-            <CardContent className="p-8 sm:p-12 relative">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+          {/* Definición destacada mejorada */}
+          <Card className="bg-gradient-to-br from-brand-teal-500 via-brand-ink-800 to-brand-teal-700 border-0 mb-16 sm:mb-20 shadow-cta overflow-hidden">
+            <CardContent className="p-10 sm:p-14 lg:p-16 relative">
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
               
-              <div className="relative">
-                <div className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                  <p className="font-body text-xs sm:text-sm text-white/80 font-medium">
-                    Protocolo de Palermo, 2000
-                  </p>
+              <div className="relative text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl mb-6">
+                  <Shield className="w-8 h-8 text-brand-mint-200" />
                 </div>
                 
-                <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 leading-heading-2">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
                   Definición Oficial
                 </h2>
                 
-                <p className="font-body text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
-                  Por "trata de personas" se entenderá la <span className="font-semibold text-brand-mint-200">captación, el transporte, el traslado, la acogida o la recepción de personas</span>, recurriendo a la <span className="font-semibold text-brand-mint-200">amenaza o al uso de la fuerza u otras formas de coacción, al rapto, al fraude, al engaño, al abuso de poder</span>, con <span className="font-semibold text-brand-mint-200">fines de explotación</span>.
+                <p className="font-body text-lg sm:text-xl lg:text-2xl text-white/95 leading-relaxed max-w-5xl mx-auto">
+                  Por "trata de personas" se entenderá la <span className="font-bold text-brand-mint-200">captación, el transporte, el traslado, la acogida o la recepción de personas</span>, recurriendo a la <span className="font-bold text-brand-mint-200">amenaza o al uso de la fuerza u otras formas de coacción, al rapto, al fraude, al engaño, al abuso de poder</span>, con <span className="font-bold text-brand-mint-200">fines de explotación</span>.
                 </p>
               </div>
             </CardContent>
@@ -175,8 +201,8 @@ const QueEsLaTrata = () => {
                   glow: "shadow-[0_0_40px_rgba(31,41,55,0.15)]"
                 },
               ];
-              const colors = colorSets[index % 3];
-
+              const colors = elemento;
+              
               return (
                 <div 
                   key={index}
@@ -187,17 +213,15 @@ const QueEsLaTrata = () => {
                     {/* Lado del icono */}
                     <div className="flex-shrink-0 relative">
                       {/* Número grande de fondo */}
-                      <div className={`absolute -top-8 ${isEven ? '-left-8' : '-right-8'} text-[120px] sm:text-[140px] font-heading font-black ${colors.text} opacity-5 select-none pointer-events-none`}>
+                      <div className={`absolute -top-6 ${isEven ? '-left-6' : '-right-6'} text-[100px] sm:text-[120px] font-heading font-black ${colors.text} opacity-5 select-none pointer-events-none`}>
                         {String(index + 1).padStart(2, '0')}
                       </div>
                       
-                      {/* Contenedor del icono con efectos */}
+                      {/* Contenedor del icono */}
                       <div className="relative">
-                        {/* Glow effect */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-20 blur-2xl rounded-full scale-150 group-hover:scale-175 transition-smooth`}></div>
                         
-                        {/* Icono principal */}
-                        <div className={`relative w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br ${colors.gradient} rounded-3xl flex items-center justify-center shadow-cta ${colors.glow} group-hover:scale-110 group-hover:rotate-3 transition-smooth`}>
+                        <div className={`relative w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br ${colors.gradient} rounded-3xl flex items-center justify-center shadow-cta group-hover:scale-110 group-hover:rotate-3 transition-smooth`}>
                           <Icon className="w-16 h-16 sm:w-20 sm:h-20 text-white" strokeWidth={1.5} />
                         </div>
                       </div>
@@ -209,19 +233,28 @@ const QueEsLaTrata = () => {
                         {/* Elemento decorativo superior */}
                         <div className={`absolute top-0 ${isEven ? 'left-0' : 'right-0'} w-24 h-1 bg-gradient-to-r ${colors.gradient} rounded-full`}></div>
                         
+                        {/* Badge numérico */}
+                        <div className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full shadow-soft flex items-center justify-center border-4 border-white">
+                          <span className={`font-heading text-lg font-bold ${colors.text}`}>
+                            {index + 1}
+                          </span>
+                        </div>
+                        
                         {/* Título */}
-                        <h3 className={`font-heading text-2xl sm:text-3xl font-bold ${colors.text} mb-6`}>
+                        <h3 className={`font-heading text-3xl sm:text-4xl font-bold ${colors.text} mb-2`}>
                           {elemento.title}
                         </h3>
+                        
+                        <p className="text-sm text-brand-ink-600 mb-6 font-medium">{elemento.subtitle}</p>
                         
                         {/* Lista de items */}
                         <ul className="space-y-3">
                           {elemento.items.map((item, i) => (
-                            <li key={i} className="flex items-start group/item">
+                            <li key={i} className="flex items-center group/item">
                               <div className={`w-8 h-8 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center mr-4 flex-shrink-0 shadow-soft group-hover/item:scale-110 transition-smooth`}>
                                 <span className="text-white font-bold text-sm">{i + 1}</span>
                               </div>
-                              <span className="font-body text-base sm:text-lg text-brand-ink-800 leading-relaxed pt-0.5">{item}</span>
+                              <span className="font-body text-base sm:text-lg text-brand-ink-800 leading-relaxed">{item}</span>
                             </li>
                           ))}
                         </ul>
