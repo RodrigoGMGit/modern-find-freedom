@@ -68,19 +68,19 @@ const PartnersSection = () => {
       
       <div
         ref={scrollRef}
-        className="relative flex gap-8 sm:gap-12 md:gap-16 overflow-x-hidden whitespace-nowrap py-8"
+        className="relative flex gap-12 sm:gap-16 md:gap-20 overflow-x-hidden whitespace-nowrap py-8"
         style={{ scrollBehavior: "auto" }}
       >
         {/* Duplicate partners for seamless loop */}
         {[...partners, ...partners].map((partner, index) => (
           <div
             key={index}
-            className="inline-flex items-center justify-center flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-white rounded-xl shadow-soft hover:shadow-card transition-smooth hover:scale-105 p-4 sm:p-6 group border border-brand-mint-200/30"
+            className="inline-flex items-center justify-center flex-shrink-0 w-40 h-28 sm:w-48 sm:h-32 md:w-56 md:h-36 transition-smooth hover:scale-110 p-6 sm:p-8 group"
           >
             <img
               src={partner.logo}
               alt={partner.name}
-              className="max-w-full max-h-full object-contain filter brightness-0 opacity-70 group-hover:brightness-100 group-hover:opacity-100 transition-smooth"
+              className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
               loading="lazy"
             />
           </div>
