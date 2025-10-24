@@ -97,13 +97,7 @@ const PartnersSection = () => {
       </div>
 
       {/* Indicador visual de scroll */}
-      <div className="relative flex justify-center items-center mt-6 sm:mt-8">
-        <div className="flex gap-2 items-center">
-          <div className="w-2 h-2 rounded-full bg-brand-teal-500 animate-pulse"></div>
-          <div className="w-2 h-2 rounded-full bg-brand-mint-200 animate-pulse delay-150"></div>
-          <div className="w-2 h-2 rounded-full bg-brand-olive-500 animate-pulse delay-300"></div>
-        </div>
-      </div>
+      
     </section>;
 };
 export default PartnersSection;
