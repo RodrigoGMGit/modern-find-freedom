@@ -88,7 +88,12 @@ const HeroSection = () => {
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
           </Button>
           
-          <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 px-6 sm:px-8 py-6 text-base sm:text-lg font-semibold rounded-xl w-full sm:w-auto">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 px-6 sm:px-8 py-6 text-base sm:text-lg font-semibold rounded-xl w-full sm:w-auto"
+            onClick={() => window.open('https://hogaresseguros.vercel.app/', '_blank')}
+          >
             Conoce Hogares Seguros
           </Button>
         </div>
