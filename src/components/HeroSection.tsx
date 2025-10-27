@@ -83,7 +83,12 @@ const HeroSection = () => {
 
         {/* CTA Button mejorado */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-          <Button variant="primary-brand" size="lg" className="group shadow-cta hover:shadow-soft bg-white text-brand-ink-900 hover:bg-brand-mint-200 px-6 sm:px-8 py-6 text-base sm:text-lg font-bold rounded-xl w-full sm:w-auto">
+          <Button 
+            variant="primary-brand" 
+            size="lg" 
+            className="group shadow-cta hover:shadow-soft bg-white text-brand-ink-900 hover:bg-brand-mint-200 px-6 sm:px-8 py-6 text-base sm:text-lg font-bold rounded-xl w-full sm:w-auto"
+            onClick={() => window.open('https://findelaesclavitud.org/metodos-de-enganche/indicador-de-vulnerabilidad/', '_blank')}
+          >
             Prueba Nuestro Test
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
           </Button>
