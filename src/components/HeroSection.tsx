@@ -83,12 +83,22 @@ const HeroSection = () => {
 
         {/* CTA Button mejorado */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-          <Button variant="primary-brand" size="lg" className="group shadow-cta hover:shadow-soft bg-white text-brand-ink-900 hover:bg-brand-mint-200 px-6 sm:px-8 py-6 text-base sm:text-lg font-bold rounded-xl w-full sm:w-auto">
+          <Button 
+            variant="primary-brand" 
+            size="lg" 
+            className="group shadow-cta hover:shadow-soft bg-white text-brand-ink-900 hover:bg-brand-mint-200 px-6 sm:px-8 py-6 text-base sm:text-lg font-bold rounded-xl w-full sm:w-auto"
+            onClick={() => window.open('https://findelaesclavitud.org/metodos-de-enganche/indicador-de-vulnerabilidad/', '_blank')}
+          >
             Prueba Nuestro Test
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
           </Button>
           
-          <Button variant="outline" size="lg" className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 px-6 sm:px-8 py-6 text-base sm:text-lg font-semibold rounded-xl w-full sm:w-auto">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 px-6 sm:px-8 py-6 text-base sm:text-lg font-semibold rounded-xl w-full sm:w-auto"
+            onClick={() => window.open('https://hogaresseguros.vercel.app/', '_blank')}
+          >
             Conoce Hogares Seguros
           </Button>
         </div>
@@ -109,10 +119,7 @@ const HeroSection = () => {
 
       {/* Indicador de scroll */}
       <div className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-20 animate-float hidden md:block">
-        <div className="flex flex-col items-center gap-2 text-white/70">
-          <span className="text-xs font-body uppercase tracking-wide">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-white/70 to-transparent"></div>
-        </div>
+        
       </div>
     </section>;
 };
