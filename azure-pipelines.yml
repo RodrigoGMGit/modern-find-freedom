@@ -1,0 +1,52 @@
+trigger:
+  branches:
+    include:
+      - dev
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  nodeVersion: '20.x'
+
+stages:
+- stage: BuildAndDeploy
+  jobs:
+  - job: Deploy
+    variables:
+      - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+          - group: vg-sitioFin-prod
+          - name: DEPLOYMENT_ENV
+            value: production
+      - ${{ else }}:
+          - group: vg-sitioFin-dev
+          - name: DEPLOYMENT_ENV
+            value: staging
+
+    steps:
+    - checkout: self
+
+    - task: NodeTool@0
+      inputs:
+        versionSpec: $(nodeVersion)
+
+    - task: Npm@1
+      inputs:
+        command: ci
+        workingDir: '.'
+
+    - task: Npm@1
+      inputs:
+        command: custom
+        customCommand: run build
+        workingDir: '.'
+      env:
+        VITE_APPINSIGHTS_CONNECTION_STRING: $(VITE_APPINSIGHTS_CONNECTION_STRING)
+
+    - task: AzureStaticWebApp@0
+      inputs:
+        azure_static_web_apps_api_token: $(SWA_TOKEN)
+        app_location: .
+        output_location: dist
+        deployment_environment: $(DEPLOYMENT_ENV)
