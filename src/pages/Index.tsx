@@ -10,7 +10,6 @@ import HeroSection from "@/components/HeroSection";
 import MissionVisionSection from "@/components/MissionVisionSection";
 import HowWeAchieve from "@/components/HowWeAchieve";
 import ValuesSection from "@/components/ValuesSection";
-import PartnersSection from "@/components/PartnersSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -21,7 +20,6 @@ const Index = () => {
       <MissionVisionSection />
       <HowWeAchieve />
       <ValuesSection />
-      <PartnersSection />
       <Footer />
     </div>
   );

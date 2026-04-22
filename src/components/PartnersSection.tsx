@@ -7,52 +7,52 @@ import { useEffect, useRef } from "react";
 import { Shield } from "lucide-react";
 const partners = [{
   name: "Escudo de Jalisco",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Escudo-de-jalisco.svg"
+  logo: "/partner-logos/escudo-de-jalisco.svg"
 }, {
   name: "FIGA",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Figa.svg"
+  logo: "/partner-logos/figa.svg"
 }, {
   name: "Fundación Expo GDL",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Fundacion-expo-gdl.svg"
+  logo: "/partner-logos/fundacion-expo-gdl.svg"
 }, {
   name: "Fundación Marisa",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Fundacion-marisa.svg"
+  logo: "/partner-logos/fundacion-marisa.svg"
 }, {
   name: "CPS",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Compania-proveedorea-de-sistemas.svg"
+  logo: "/partner-logos/cps.svg"
 }, {
   name: "Actinver",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Actinver.svg"
+  logo: "/partner-logos/actinver.svg"
 }, {
   name: "Centro Oftalmológico",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Centro-oftalmologico-visual.svg"
+  logo: "/partner-logos/centro-oftalmologico.svg"
 }, {
   name: "Gobierno de Zapopan",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/10/Gobierno-de-zapopan-RR.svg"
+  logo: "/partner-logos/gobierno-de-zapopan.svg"
 }, {
   name: "I&T",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Institucionalidad-y-transparencia.svg"
+  logo: "/partner-logos/i-y-t.svg"
 }, {
   name: "CEMEFI",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Cemefi.svg"
+  logo: "/partner-logos/cemefi.svg"
 }, {
   name: "We Solve",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/We-solve.svg"
+  logo: "/partner-logos/we-solve.svg"
 }, {
   name: "Sistema de Asistencia Social",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Sistema-de-asistencia-social.svg"
+  logo: "/partner-logos/sistema-de-asistencia-social.svg"
 }, {
   name: "Scotiabank",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Scotiabank.svg"
+  logo: "/partner-logos/scotiabank.svg"
 }, {
   name: "Igualdad Sustantiva",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Igualdad-sustantiva.svg"
+  logo: "/partner-logos/igualdad-sustantiva.svg"
 }, {
   name: "IBM",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/IBM.svg"
+  logo: "/partner-logos/ibm.svg"
 }, {
   name: "Corporativa de Fundaciones",
-  logo: "https://findelaesclavitud.org/wp-content/uploads/2022/08/Corporativa-de-fundaciones.svg"
+  logo: "/partner-logos/corporativa-de-fundaciones.svg"
 }];
 const PartnersSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
