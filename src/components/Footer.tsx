@@ -1,4 +1,9 @@
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Shield, Heart, ExternalLink } from "lucide-react";
+/**
+ * Pie de página: enlaces, contacto y redes.
+ *
+ * @see docs/componentes-de-dominio.md
+ */
+import { Facebook, Twitter, Instagram, Music2, Mail, MapPin, Shield, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import logo from "@/assets/logo.png";
@@ -35,7 +40,7 @@ const Footer = () => {
               {/* Redes sociales */}
               <div className="flex gap-3">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/FinDeLaEsclavitud"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-teal-500 border border-white/20 flex items-center justify-center transition-smooth group"
@@ -44,22 +49,31 @@ const Footer = () => {
                   <Facebook className="w-5 h-5 text-white/70 group-hover:text-white transition-smooth" />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com/FinEsclavitud"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-teal-500 border border-white/20 flex items-center justify-center transition-smooth group"
-                  aria-label="Twitter"
+                  aria-label="X"
                 >
                   <Twitter className="w-5 h-5 text-white/70 group-hover:text-white transition-smooth" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/findelaesclavitud"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-teal-500 border border-white/20 flex items-center justify-center transition-smooth group"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5 text-white/70 group-hover:text-white transition-smooth" />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@findelaesclavitud"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-teal-500 border border-white/20 flex items-center justify-center transition-smooth group"
+                  aria-label="TikTok"
+                >
+                  <Music2 className="w-5 h-5 text-white/70 group-hover:text-white transition-smooth" />
                 </a>
               </div>
             </div>
@@ -180,25 +194,10 @@ const Footer = () => {
                   <div>
                     <p className="font-body text-xs text-white/50 mb-1">Email</p>
                     <a 
-                      href="mailto:info@findelaesclavitud.org" 
+                      href="mailto:contacto@findelaesclavitud.org" 
                       className="font-body text-sm text-white/70 hover:text-brand-mint-200 transition-smooth"
                     >
-                      info@findelaesclavitud.org
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-3 group">
-                  <div className="p-2 bg-white/5 rounded-lg group-hover:bg-white/10 transition-smooth">
-                    <Phone className="w-4 h-4 text-brand-mint-200" />
-                  </div>
-                  <div>
-                    <p className="font-body text-xs text-white/50 mb-1">Teléfono</p>
-                    <a 
-                      href="tel:+523312345678" 
-                      className="font-body text-sm text-white/70 hover:text-brand-mint-200 transition-smooth"
-                    >
-                      +52 (33) 1234 5678
+                      contacto@findelaesclavitud.org
                     </a>
                   </div>
                 </div>

@@ -1,3 +1,8 @@
+/**
+ * Sección Misión y Visión en la portada.
+ *
+ * @see docs/componentes-de-dominio.md
+ */
 import { Target, Eye } from "lucide-react";
 import { Card } from "@/components/ui/card";
 const MissionVisionSection = () => {

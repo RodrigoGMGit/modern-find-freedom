@@ -1,3 +1,9 @@
+/**
+ * Tipos y modalidades de explotación con apoyo visual (imágenes en assets).
+ *
+ * @route `/aprende/tipos-de-trata`
+ * @see docs/rutas-y-paginas.md
+ */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";

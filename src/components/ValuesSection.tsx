@@ -1,3 +1,8 @@
+/**
+ * Sección de valores institucionales en la portada.
+ *
+ * @see docs/componentes-de-dominio.md
+ */
 import { Heart, Target, Hand, Zap, Users2, Shield, MessageCircle, Award } from "lucide-react";
 
 const values = [

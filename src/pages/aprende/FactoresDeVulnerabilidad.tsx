@@ -1,3 +1,9 @@
+/**
+ * Factores que pueden aumentar la vulnerabilidad ante la trata.
+ *
+ * @route `/aprende/factores-de-vulnerabilidad`
+ * @see docs/rutas-y-paginas.md
+ */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";

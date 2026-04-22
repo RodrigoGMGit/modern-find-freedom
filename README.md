@@ -4,6 +4,16 @@ Sitio web moderno para **Fin de la Esclavitud**, organización dedicada a combat
 
 Esta guía está pensada para **personas nuevas en el proyecto** que necesitan instalar el código, ejecutarlo en su computadora y saber **dónde editar textos, imágenes y colores** sin ser expertas en desarrollo.
 
+### Documentación del código (mapa del repositorio)
+
+Además de esta guía operativa, el proyecto incluye documentación en la carpeta **`docs/`** para **navegar el código**: cómo arranca la app, qué archivo corresponde a cada URL y cómo se relacionan páginas y componentes.
+
+1. Abre **[`docs/README.md`](docs/README.md)** como índice.
+2. Sigue el **orden sugerido** allí: arquitectura → rutas y páginas → componentes de dominio → hooks / telemetría / utilidades → política de `components/ui/`.
+3. En el código, muchos archivos de `src/pages/` y `src/components/` (fuera de `ui/`) tienen un **comentario al inicio** que enlaza mentalmente con esos mismos documentos (`@see docs/...`).
+
+En resumen: **README** = puesta en marcha y cambios frecuentes; **`docs/`** = orientación en el código y relaciones entre archivos.
+
 ---
 
 ## Requisitos previos

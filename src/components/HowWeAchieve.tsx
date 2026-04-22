@@ -1,3 +1,8 @@
+/**
+ * Sección “cómo lo logramos” con iconografía en la portada.
+ *
+ * @see docs/componentes-de-dominio.md
+ */
 import { Users, Flag, Bird, MessageSquare, HandHeart, Target } from "lucide-react";
 
 const achievements = [

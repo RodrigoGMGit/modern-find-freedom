@@ -1,3 +1,9 @@
+/**
+ * Listado y presentación del blog.
+ *
+ * @route `/blog`
+ * @see docs/rutas-y-paginas.md
+ */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,6 +12,8 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, User, BookOpen, ArrowRight, Search } from "lucide-react";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { cardColors, iconColors } from "@/utils/cardColors";
+import prevencionInfantil from "@/assets/prevencion-infantil.jpg";
+import escuelaPadres from "@/assets/escuela-padres.jpg";
 
 const blogPosts = [
   {
@@ -15,7 +23,7 @@ const blogPosts = [
     date: "mayo 29, 2023",
     author: "Equipo Editorial",
     tag: "Violencia de Género",
-    image: "https://findelaesclavitud.org/wp-content/uploads/2023/05/matrimonio-forzado-1024x595.jpg",
+    image: prevencionInfantil,
     readTime: "5 min",
   },
   {
@@ -25,7 +33,7 @@ const blogPosts = [
     date: "abril 14, 2023",
     author: "Equipo Editorial",
     tag: "Violencia de Género",
-    image: "https://findelaesclavitud.org/wp-content/uploads/2023/04/pexels-anete-lusina-5723192R-1024x683.jpg",
+    image: escuelaPadres,
     readTime: "7 min",
   },
   {

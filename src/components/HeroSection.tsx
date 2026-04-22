@@ -1,3 +1,8 @@
+/**
+ * Carrusel / bloque principal del hero en la portada (`/`).
+ *
+ * @see docs/componentes-de-dominio.md
+ */
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Shield, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -97,7 +102,7 @@ const HeroSection = () => {
             variant="outline" 
             size="lg" 
             className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 px-6 sm:px-8 py-6 text-base sm:text-lg font-semibold rounded-xl w-full sm:w-auto"
-            onClick={() => window.open('https://hogaresseguros.vercel.app/', '_blank')}
+            onClick={() => window.open('https://hogaresseguros.findelaesclavitud.org', '_blank')}
           >
             Conoce Hogares Seguros
           </Button>

@@ -1,3 +1,8 @@
+/**
+ * Sección de alianzas u organizaciones colaboradoras en la portada.
+ *
+ * @see docs/componentes-de-dominio.md
+ */
 import { useEffect, useRef } from "react";
 import { Shield } from "lucide-react";
 const partners = [{

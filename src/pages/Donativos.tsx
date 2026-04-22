@@ -1,3 +1,9 @@
+/**
+ * Opciones de donación y mensajes de apoyo a la misión.
+ *
+ * @route `/donativos`
+ * @see docs/rutas-y-paginas.md
+ */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";

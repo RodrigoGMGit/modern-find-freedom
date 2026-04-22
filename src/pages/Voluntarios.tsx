@@ -1,3 +1,9 @@
+/**
+ * Cómo colaborar como voluntario y vías de contacto.
+ *
+ * @route `/voluntarios`
+ * @see docs/rutas-y-paginas.md
+ */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";

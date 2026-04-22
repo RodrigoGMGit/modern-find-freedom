@@ -1,3 +1,9 @@
+/**
+ * Contenido educativo: qué es la trata de personas.
+ *
+ * @route `/aprende/que-es-la-trata`
+ * @see docs/rutas-y-paginas.md
+ */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";

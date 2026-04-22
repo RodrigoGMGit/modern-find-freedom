@@ -1,3 +1,9 @@
+/**
+ * Cabecera global: logo, navegación principal y menú móvil.
+ *
+ * @see docs/componentes-de-dominio.md
+ * @see docs/rutas-y-paginas.md
+ */
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Shield, ChevronDown, Heart, Home } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -108,7 +114,7 @@ const Navbar = () => {
               variant="outline" 
               size="sm" 
               className="shadow-soft hover:shadow-cta"
-              onClick={() => window.open('https://hogaresseguros.vercel.app/', '_blank')}
+              onClick={() => window.open('https://hogaresseguros.findelaesclavitud.org', '_blank')}
             >
               <Home className="h-4 w-4" />
               Hogares Seguros
@@ -127,7 +133,7 @@ const Navbar = () => {
               variant="ghost" 
               size="sm" 
               className="text-brand-teal-500 hover:bg-brand-teal-500/10"
-              onClick={() => window.open('https://hogaresseguros.vercel.app/', '_blank')}
+              onClick={() => window.open('https://hogaresseguros.findelaesclavitud.org', '_blank')}
             >
               <Home className="h-5 w-5" />
             </Button>
@@ -175,7 +181,7 @@ const Navbar = () => {
             
             {/* Mobile CTAs */}
             <button 
-              onClick={() => window.open('https://hogaresseguros.vercel.app/', '_blank')}
+              onClick={() => window.open('https://hogaresseguros.findelaesclavitud.org', '_blank')}
               className="px-4 py-3 rounded-lg font-body text-sm font-semibold bg-white border-2 border-brand-teal-500 text-brand-teal-500 hover:bg-brand-teal-500/10 transition-smooth flex items-center justify-center gap-2"
             >
               <Home className="h-4 w-4" />

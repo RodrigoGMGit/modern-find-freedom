@@ -1,3 +1,9 @@
+/**
+ * Página de programas y oferta educativa (acordeones, imágenes por programa).
+ *
+ * @route `/oferta-educativa`
+ * @see docs/rutas-y-paginas.md
+ */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,6 +13,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Mail, GraduationCap, Users, BookOpen, CheckCircle, ArrowRight, ExternalLink } from "lucide-react";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { cardColors, iconColors, checkmarkColors } from "@/utils/cardColors";
+import heroImage from "@/assets/hero-image.jpg";
 import redesSociales from "@/assets/redes-sociales.jpg";
 import prevencionInfantil from "@/assets/prevencion-infantil.jpg";
 import capacitacionProfesionales from "@/assets/capacitacion-profesionales.jpg";
@@ -32,7 +39,7 @@ const workshops = [
   {
     title: "Prevención de Trata de Personas",
     description: "Enfocado a adolescentes, jóvenes, adultos, profesionales, maestros, directivos. Todos y todas tienen que estar informados para detectar situaciones de riesgo y cómo es que los tratantes trabajan para enganchar a sus posibles víctimas. Estar informado puede salvar la vida de los sectores vulnerables de nuestra sociedad.",
-    image: "https://findelaesclavitud.org/wp-content/uploads/2025/05/ryan-moreno-Lurw1nCIkLc-unsplash-1024x683.jpg",
+    image: heroImage,
     duration: "2.5 horas",
     audience: "Público general",
     highlights: ["Modalidades de trata", "Factores de riesgo", "Cómo actuar"],
@@ -106,7 +113,7 @@ const OfertaEducativa = () => {
             className="block rounded-2xl overflow-hidden shadow-card hover:shadow-xl transition-smooth group"
           >
             <img
-              src="https://findelaesclavitud.org/wp-content/uploads/2025/05/DIMPLMADO-2.jpg"
+              src={capacitacionProfesionales}
               alt="Diplomado en Prevención de Trata de Personas"
               className="w-full h-auto object-cover group-hover:scale-105 transition-smooth"
             />

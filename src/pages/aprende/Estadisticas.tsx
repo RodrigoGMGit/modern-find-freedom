@@ -1,3 +1,9 @@
+/**
+ * Cifras y contexto estadístico sobre la trata.
+ *
+ * @route `/aprende/estadisticas`
+ * @see docs/rutas-y-paginas.md
+ */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";

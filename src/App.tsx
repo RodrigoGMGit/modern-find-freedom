@@ -1,3 +1,10 @@
+/**
+ * Raíz de React: proveedores globales (React Query, tooltips, toasts) y
+ * `BrowserRouter` de React Router con todas las rutas del sitio.
+ *
+ * @see docs/arquitectura.md
+ * @see docs/rutas-y-paginas.md
+ */
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";

@@ -1,3 +1,10 @@
+/**
+ * Pantalla 404 para rutas no definidas en `src/App.tsx`.
+ * No incluye Navbar ni Footer.
+ *
+ * @route Comodín `*` (cualquier URL no registrada)
+ * @see docs/rutas-y-paginas.md
+ */
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
