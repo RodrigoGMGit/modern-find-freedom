@@ -97,7 +97,7 @@ const PartnersSection = () => {
     }}>
         {/* Duplicate partners for seamless loop */}
         {[...partners, ...partners].map((partner, index) => <div key={index} className="inline-flex items-center justify-center flex-shrink-0 w-40 h-28 sm:w-48 sm:h-32 md:w-56 md:h-36 transition-smooth hover:scale-110 p-6 sm:p-8 group">
-            <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain filter brightness-0 opacity-70 group-hover:brightness-100 group-hover:opacity-100 transition-all duration-500" loading="lazy" />
+            <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-all duration-500" loading="lazy" />
           </div>)}
       </div>
 
